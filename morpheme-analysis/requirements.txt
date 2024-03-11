@@ -1,0 +1,11 @@
+rhoknp[cli]
+unidic
+mecab-python3
+transformers
+datasets
+evaluate
+numpy
+pandas
+matplotlib
+torch
+scipy

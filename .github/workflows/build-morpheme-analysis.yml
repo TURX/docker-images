@@ -1,4 +1,4 @@
-name: Build AI Image
+name: Build Morpheme Analysis Image
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     branches:
       - "main"
     paths:
-      - "ai/**"
+      - "morpheme-analysis/**"
 
 jobs:
   docker:
@@ -38,6 +38,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: "{{defaultContext}}:ai"
+          context: "{{defaultContext}}:morpheme-analysis"
           push: true
-          tags: turx/ai:latest
+          tags: turx/aozora-analysis:latest

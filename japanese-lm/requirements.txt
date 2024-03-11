@@ -1,0 +1,10 @@
+autotrain-advanced
+rhoknp[cli]
+unidic
+mecab-python3
+numpy
+pandas
+matplotlib
+torch
+scipy
+jaconv

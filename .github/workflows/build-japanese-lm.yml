@@ -1,4 +1,4 @@
-name: Build AI Image
+name: Build Japanese LM Image
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     branches:
       - "main"
     paths:
-      - "ai/**"
+      - "japanese-lm/**"
 
 jobs:
   docker:
@@ -38,6 +38,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: "{{defaultContext}}:ai"
+          context: "{{defaultContext}}:japanese-lm"
           push: true
-          tags: turx/ai:latest
+          tags: turx/japanese-lm:latest
