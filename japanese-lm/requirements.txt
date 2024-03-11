@@ -8,3 +8,4 @@ matplotlib
 torch
 scipy
 jaconv
+wandb
