@@ -1,0 +1,10 @@
+autotrain-advanced
+umap-learn[plot]
+numpy
+pandas
+matplotlib
+torch
+scipy
+tensorflow
+distinctipy
+wandb
