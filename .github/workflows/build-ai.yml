@@ -9,7 +9,7 @@ on:
       - "ai/**"
 
 jobs:
-  docker:
+  ai-docker:
     runs-on: ubuntu-latest
     steps:
       -
@@ -24,6 +24,16 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: false
+          swap-storage: true
       -
         name: Build and push
         uses: docker/build-push-action@v5
