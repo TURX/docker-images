@@ -1,0 +1,10 @@
+langchain
+langchain_core
+langchain_openai
+langchain_huggingface
+numpy
+pandas
+sentencepiece
+protobuf
+bitsandbytes
+accelerate
