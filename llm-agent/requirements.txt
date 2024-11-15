@@ -2,9 +2,5 @@ langchain
 langchain_core
 langchain_openai
 langchain_huggingface
-numpy
-pandas
-sentencepiece
-protobuf
-bitsandbytes
-accelerate
+autotrain-advanced
+transformers[all]
