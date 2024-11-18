@@ -15,6 +15,7 @@ RUN python3 -m pip install sentencepiece
 RUN python3 -m pip install transformers[all]
 RUN python3 -m pip install langchain_openai langchain_huggingface
 RUN python3 -m pip install flash-attn --no-build-isolation
+RUN python3 -m pip install wandb
 
 RUN date -u > /docker-build-time.txt
 RUN echo "builder: GitHub Actions" >> /docker-build.txt
