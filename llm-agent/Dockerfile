@@ -13,7 +13,7 @@ RUN python3 -m pip install --no-build-isolation pyyaml==5.4.1
 RUN python3 -m pip install autotrain-advanced[base]
 RUN python3 -m pip install sentencepiece
 RUN python3 -m pip install transformers[all]
-RUN python3 -m pip install langchain_openai langchain_huggingface
+RUN python3 -m pip install langchain langchain-openai langchain-huggingface
 RUN python3 -m pip install flash-attn --no-build-isolation
 RUN python3 -m pip install wandb
 
