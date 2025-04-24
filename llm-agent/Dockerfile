@@ -14,6 +14,7 @@ RUN python3 -m pip install autotrain-advanced[base]
 RUN python3 -m pip install sentencepiece
 RUN python3 -m pip install transformers[all]
 RUN python3 -m pip install langchain langchain-openai langchain-huggingface
+RUN python3 -m pip install --upgrade bitsandbytes
 RUN python3 -m pip install flash-attn --no-build-isolation
 RUN python3 -m pip install wandb
 
