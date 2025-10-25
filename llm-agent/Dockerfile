@@ -19,7 +19,10 @@ RUN uv pip install transformers[torch,sklearn,retrieval,sentencepiece,accelerate
 RUN uv pip install langchain langchain-core langchain-openai langchain-huggingface
 RUN uv pip install bitsandbytes
 RUN uv pip install setuptools
+ENV MAX_JOBS=4
 RUN uv pip install flash-attn --no-build-isolation
+RUN uv pip install flash_attn_3 --find-links https://windreamer.github.io/flash-attention3-wheels/cu126_torch280 --extra-index-url https://download.pytorch.org/whl/cu126 --no-build-isolation
+
 RUN uv pip install wandb
 RUN uv pip install trl peft torcheval einops
 RUN uv pip install unsloth
