@@ -16,20 +16,23 @@ ENV PATH="/venv/bin:$PATH"
 ENV PIP_EXTRA_INDEX_URL="https://download.pytorch.org/whl/cu124"
 
 RUN uv pip install nvitop
-RUN uv pip install torch==2.6.0 transformers[torch,sklearn,retrieval,sentencepiece,accelerate,tokenizers,hub-kernels,serving,vision,chat_template]>=4.57.1
+RUN uv pip install torch==2.6.0 transformers[torch,sklearn,retrieval,sentencepiece,accelerate,tokenizers,hub-kernels,serving,vision,chat_template]>=4.57.1 evaluate
 RUN uv pip install pandas numpy
 RUN uv pip install "langchain<1" "langchain-core<1" langchain-openai langchain-huggingface langchain-text-splitters langsmith
 RUN uv pip install bitsandbytes
 RUN uv pip install setuptools
-RUN uv pip install https://github.com/TURX/flash-attention-prebuild-wheels/releases/download/v0.0.4/flash_attn-2.8.3-cp310-cp310-linux_x86_64.whl
-RUN uv pip install https://github.com/TURX/flash-attention-prebuild-wheels/releases/download/v0.0.4/flash_attn_3-3.0.0b1-cp39-abi3-linux_x86_64.whl
+RUN if [ "$(uname -m)" = "x86_64" ]; then \
+      uv pip install https://github.com/TURX/flash-attention-prebuild-wheels/releases/download/v0.0.4/flash_attn-2.8.3-cp310-cp310-linux_x86_64.whl && \
+      uv pip install https://github.com/TURX/flash-attention-prebuild-wheels/releases/download/v0.0.4/flash_attn_3-3.0.0b1-cp39-abi3-linux_x86_64.whl ; \
+    fi
 
 RUN uv pip install wandb
 RUN uv pip install trl peft torcheval einops
 RUN uv pip install unsloth
-RUN uv pip install flashinfer-python flashinfer-cubin
-RUN uv pip install xformers
-RUN uv pip install vllm --torch-backend=cu124 --no-build-isolation
+RUN uv pip install flashinfer-python
+RUN uv pip install https://github.com/TURX/flash-attention-prebuild-wheels/releases/download/v0.0.4/flashinfer_cubin-0.5.1-py3-none-any.whl
+RUN uv pip install https://github.com/TURX/flash-attention-prebuild-wheels/releases/download/v0.0.4/flashinfer_jit_cache-0.5.1-cp39-abi3-manylinux_2_28_x86_64.whl
+RUN uv pip install xformers vllm --torch-backend=cu124 --no-build-isolation
 
 # group_level_summary template
 RUN uv pip install python-docx
